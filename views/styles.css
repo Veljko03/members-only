@@ -45,7 +45,7 @@ body {
 .header-buttons {
   background-color: #1e293b;
   display: flex;
-  gap: 60px;
+  gap: 40px;
   margin-right: 80px;
 }
 
