@@ -1,4 +1,4 @@
-const pool = require("./db/pool");
+const pool = require("../db/pool");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
