@@ -4,7 +4,8 @@ const bcrypt = require("bcryptjs");
 
 async function mainPage(req, res) {
   const posts = await db.getAllPosts();
-  console.log(posts);
+
+  console.log("user ", req.user);
 
   res.render("index", { user: req.user, posts: posts });
 }

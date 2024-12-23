@@ -18,14 +18,8 @@
     <a href="/log-out">LOG OUT</a>
     <p>------------</p>
     <a href="create-post">Create new post</a>
-
-    <% if (posts && posts.length > 0) { %> <% posts.forEach((post) => { %>
-
-    <h2><%= post.title %></h2>
-    <h6><%= post.text %></h6>
-    <% }) %> <% } else { %>
-    <h2>There is 0 posts, add some :)</h2>
-    <% } %> <% } else { %>
+    <%- include('partials/posts', { posts: posts,user:locals.user }) %> <% }
+    else { %>
     <a href="/sign-up">Sign In</a>
     <a href="/log-in">Log in</a>
 
@@ -33,6 +27,7 @@
       To create a post you need to <a href="/log-in">Log in </a>first. If you
       dont have account you can <a href="/sign-up">Sign up </a>.
     </p>
-    <%}%>
+
+    <%- include('partials/posts', { posts: posts }) %> <% }%>
   </body>
 </html>
