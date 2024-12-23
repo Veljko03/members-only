@@ -1,0 +1,16 @@
+<% if (locals.user) {%>
+<h1>Create new post</h1>
+<form action="/create-post" method="POST">
+  <label for="title">Title:</label>
+  <input id="title" name="title" placeholder="Title" type="text" />
+  <label for="mess">Content:</label>
+  <input id="mess" name="mess" placeholder="Write some message" type="text" />
+  <button>Submit</button>
+</form>
+
+<%} else { %>
+<h1>Good try :)</h1>
+<h3>
+  But you are not allowed to create a post because you are not logged in :(
+</h3>
+<%}%>

@@ -5,19 +5,34 @@
     <title></title>
   </head>
   <body>
-    <a href="/sign-up">Sign In</a>
+    <h1>Welcome to members only</h1>
+
     <% if (locals.user) {%>
     <h1>WELCOME BACK <%= user.username %></h1>
+
+    <p>
+      To be able to see usernames you need to
+      <a href="/membership">join our membership</a> fristly!
+    </p>
+
     <a href="/log-out">LOG OUT</a>
-    <% } else { %>
-    <h1>please log in</h1>
-    <form action="/log-in" method="POST">
-      <label for="username">Username</label>
-      <input id="username" name="username" placeholder="username" type="text" />
-      <label for="password">Password</label>
-      <input id="password" name="password" type="password" />
-      <button>Log In</button>
-    </form>
+    <p>------------</p>
+    <a href="create-post">Create new post</a>
+
+    <% if (posts && posts.length > 0) { %> <% posts.forEach((post) => { %>
+
+    <h2><%= post.title %></h2>
+    <h6><%= post.text %></h6>
+    <% }) %> <% } else { %>
+    <h2>There is 0 posts, add some :)</h2>
+    <% } %> <% } else { %>
+    <a href="/sign-up">Sign In</a>
+    <a href="/log-in">Log in</a>
+
+    <p>
+      To create a post you need to <a href="/log-in">Log in </a>first. If you
+      dont have account you can <a href="/sign-up">Sign up </a>.
+    </p>
     <%}%>
   </body>
 </html>
