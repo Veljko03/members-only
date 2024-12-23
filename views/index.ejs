@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title></title>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+
     <h1>Welcome to members only</h1>
 
     <% if (locals.user) {%>
@@ -29,5 +31,49 @@
     </p>
 
     <%- include('partials/posts', { posts: posts }) %> <% }%>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members Only App</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="header-container">
+        <h1 class="app-title">Members only</h1>
+        <div class="header-buttons">
+          <% if (!locals.user) { %>
+          <a href="/sign-up" class="button">Sign Up</a>
+          <a href="/log-in" class="button">Log In</a>
+          <% } else { %>
+          <a href="/create-post" class="button">Create Post</a>
+          <a href="/log-out" class="button">Log Out</a>
+          <% } %>
+        </div>
+      </div>
+
+      <div class="main-container">
+        <% if (locals.user) { %> <%if (!locals.user.membership_status) { %>
+        <p>
+          To be able to see usernames you need to
+          <a href="/membership" class="button">Join Membership</a> first!
+        </p>
+        <%}%> <% } else { %>
+        <p>
+          To create a post you need to
+          <a href="/log-in" class="button">Log In</a>. Don't have an account?
+          <a href="/sign-up" class="button">Sign Up</a>.
+        </p>
+        <% } %>
+
+        <div class="posts-container">
+          <%- include('partials/posts', { posts: posts, user: locals.user }) %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

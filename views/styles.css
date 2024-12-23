@@ -1,0 +1,148 @@
+/* General Styles */
+h1 {
+  color: white;
+}
+
+* {
+  background-color: #0e1217;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #d1d5db;
+}
+
+/* App Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #1f2937;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+  background-color: #1e293b;
+
+  font-size: 32px;
+  margin-left: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.header-buttons {
+  background-color: #1e293b;
+  display: flex;
+  gap: 60px;
+  margin-right: 80px;
+}
+
+.header-buttons .button {
+  text-decoration: none;
+  padding: 8px 12px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.header-buttons .button:hover {
+  background-color: #2563eb;
+}
+
+/* Main Content */
+.main-container {
+  flex: 1;
+  padding: 20px;
+  justify-items: center;
+}
+
+.auth-actions p {
+  margin-bottom: 20px;
+}
+
+.auth-actions a {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.auth-actions a:hover {
+  color: #60a5fa;
+}
+
+/* Posts Section */
+.posts-container {
+  margin-top: 40px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-item {
+  background-color: #1e293b;
+  border: 1px solid #374151;
+  padding: 35px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  color: #e5e7eb;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  display: flex;
+  background-color: #1e293b;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.post-header.hidden h2 {
+  background-color: #1e293b;
+  color: #6b7280;
+}
+
+.post-name,
+.post-username {
+  background-color: #1e293b;
+  font-size: 1em;
+  margin: 0;
+}
+
+.post-content,
+.post-title {
+  background-color: #1e293b;
+  font-size: 1.2em;
+  color: #60a5fa;
+  margin: 0 0 5px;
+}
+
+.post-content .post-text {
+  background-color: #1e293b;
+  font-size: 0.9em;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* No Posts Available */
+.no-posts {
+  text-align: center;
+  color: #9ca3af;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 800;
+}
