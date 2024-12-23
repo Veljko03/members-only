@@ -34,8 +34,17 @@ async function getAllPosts() {
   return a.rows;
 }
 
+async function updateUserMembership(user) {
+  if (user) {
+    await pool.query("UPDATE users SET membership_status=TRUE WHERE id=($1)", [
+      user.id,
+    ]);
+  }
+}
+
 module.exports = {
   insertNewMessage,
   insertNewUser,
   getAllPosts,
+  updateUserMembership,
 };

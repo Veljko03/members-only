@@ -1,0 +1,16 @@
+<% if (user) {%>
+<h1>Hi here is your chance to get a membership</h1>
+<br />
+<br />
+<h4>You need to solve this in order to get it</h4>
+<h4>3 + 3 * 3 - 3 / 3</h4>
+<form action="/membership" method="POST">
+  <label for="answer">Your answer:</label>
+  <input id="answer" name="answer" type="text" />
+
+  <button>Submit</button>
+</form>
+<%} else {%>
+<h1>aaaaaaaaaa</h1>
+
+<%}%>

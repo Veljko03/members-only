@@ -19,6 +19,23 @@ function logout(req, res, next) {
   });
 }
 
+async function getMembership(req, res) {
+  res.render("membership", { user: req.user });
+}
+
+async function postMembership(req, res) {
+  const { answer } = req.body;
+  console.log(req.user, " user");
+
+  console.log(answer);
+  if (answer == "11") {
+    await db.updateUserMembership(req.user);
+    res.redirect("/");
+  } else {
+    res.redirect("/membership");
+  }
+}
+
 function singUpForm(req, res) {
   res.render("sign-up-form");
 }
@@ -47,7 +64,7 @@ async function signUpFormPost(req, res, next) {
 }
 
 async function createNewMessageGet(req, res) {
-  res.render("new-post-form");
+  res.render("new-post-form", { user: req.user });
 }
 
 async function logInPost(req, res, next) {
@@ -75,4 +92,6 @@ module.exports = {
   logout,
   logInPost,
   signUpFormPost,
+  getMembership,
+  postMembership,
 };
