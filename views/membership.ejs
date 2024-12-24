@@ -1,4 +1,4 @@
-<% if (user) {%>
+<!-- <% if (user) {%>
 <h1>Hi here is your chance to get a membership</h1>
 <br />
 <br />
@@ -13,4 +13,39 @@
 <%} else {%>
 <h1>aaaaaaaaaa</h1>
 
-<%}%>
+<%}%> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membership Challenge</title>
+    <link rel="stylesheet" href="./membership.css" />
+  </head>
+  <body>
+    <div class="membership-container">
+      <% if (user) { %>
+      <div class="challenge-box">
+        <h1>Hi! Here is your chance to get a membership</h1>
+        <p>You need to solve this in order to get it:</p>
+        <h4 class="challenge-equation">3 + 3 * 3 - 3 / 3</h4>
+        <form action="/membership" method="POST">
+          <div class="form-group">
+            <label for="answer">Your answer:</label>
+            <input
+              id="answer"
+              name="answer"
+              type="text"
+              class="form-input"
+              placeholder="Enter your answer"
+            />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <% } else { %>
+      <h1 class="no-access">You don't have access to this page!</h1>
+      <% } %>
+    </div>
+  </body>
+</html>
