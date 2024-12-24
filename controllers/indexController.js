@@ -1,6 +1,7 @@
 const db = require("../db/queries");
 const passport = require("passport");
 const bcrypt = require("bcryptjs");
+const { validationResult, body } = require("express-validator");
 
 async function mainPage(req, res) {
   const posts = await db.getAllPosts();
@@ -40,7 +41,39 @@ function singUpForm(req, res) {
   res.render("sign-up-form");
 }
 
+// exports.signUpFormPost = [
+//   validateUser,
+//   (req, res, next) => {
+//     const errors = validationResult(req);
+//     if (!errors.isEmpty()) {
+//       return res.status(400).render("new-post-form", {
+//         errors: errors.array(),
+//       });
+//     }
+//     const { full_name, username, password, confirm } = req.body;
+//     try {
+//       bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
+//         if (err) {
+//           return;
+//         }
+//         await db.insertNewUser(full_name, username, hashedPassword);
+//       });
+
+//       res.redirect("/log-in");
+//     } catch (err) {
+//       return next(err);
+//     }
+//   },
+// ];
 async function signUpFormPost(req, res, next) {
+  const errors = validationResult(req);
+
+  // Ako validacija ima greške, prikaži ih korisniku
+  if (!errors.isEmpty()) {
+    return res.status(400).render("sign-up-form", {
+      errors: errors.array(), // Prosledi greške view-u
+    });
+  }
   const { full_name, username, password, confirm } = req.body;
   console.log(
     `full nmae: ${full_name} username: ${username} password ${password} confirm ${confirm}`
